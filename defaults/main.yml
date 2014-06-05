@@ -1,0 +1,10 @@
+---
+# file: roles/elasticsearch/defaults/main.yml
+
+aspects_elasticsearch_install: true
+aspects_elasticsearch_major_version_number: 1.1
+aspects_elasticsearch_conf:
+  cluster_name: false
+  data_path: false
+  multicast_enabled: false
+  unicast_hosts: false

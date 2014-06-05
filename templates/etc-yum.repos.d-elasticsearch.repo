@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+[elasticsearch-{{ aspects_elasticsearch_major_version_number }}]
+name=Elasticsearch repository for {{ aspects_elasticsearch_major_version_number }}.x packages
+baseurl=http://packages.elasticsearch.org/elasticsearch/{{ aspects_elasticsearch_major_version_number }}/centos
+gpgcheck=1
+gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+enabled=1

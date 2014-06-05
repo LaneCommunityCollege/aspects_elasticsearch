@@ -1,0 +1,24 @@
+---
+# install elasticsearch on RedHat family OS's.
+
+- name: get signing key
+  command: rpm --import http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+  tags:
+      - aspects_elasticsearch
+      - aspects_elasticsearch_install
+      - aspects_elasticsearch_install_yum
+
+- name: Set yum repo template
+  template:
+    src="etc-yum.repos.d-elasticsearch.repo"
+    dest="/etc/yum.repos.d/elasticsearch.repo"
+    mode="0644"
+    owner="root"
+    group="root"
+  tags:
+    - aspects_elasticsearch
+    - aspects_elasticsearch_install
+    - aspects_elasticsearch_install_yum
+
+- name: install elasticsearch with yum
+  yum: pkg="elasticsearch" state="present"
