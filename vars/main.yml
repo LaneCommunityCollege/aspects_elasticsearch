@@ -1,7 +1,7 @@
 ---
 # vars file for aspects_elasticsearch
 aspects_common_packages:
-  javajre:
+  openjdk:
     state: "latest"
   python_apt:
     state: "latest"

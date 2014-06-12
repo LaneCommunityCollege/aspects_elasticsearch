@@ -12,6 +12,12 @@ Set ```hash_behaviour=merge``` in your ansible.cfg file.
 Set as ```true``` to run installation tasks.
 Set as ```false``` to skip installation tasks.
 
+###aspects_elasticsearch_use_oracle_java
+Set as ```'true``` if you want to use aspects_oracle_java to install oracle java.
+Leave as ```false```, otherwise.
+
+You will want to set as true if you are on a Suse system.
+
 ###aspects_elasticsearch_major_version_number
 The version of elasticsearch to install. Defaults to: 1.1
 See http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html for other options.
