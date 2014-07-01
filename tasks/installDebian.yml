@@ -19,7 +19,7 @@
     - aspects_elasticsearch_install_apt
 
 - name: install elasticsearch with apt
-  apt: pkg="elasticsearch" state="present"
+  apt: pkg="elasticsearch" state="latest"
   tags:
     - aspects_elasticsearch
     - aspects_elasticsearch_install

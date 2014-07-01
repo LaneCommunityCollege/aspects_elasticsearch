@@ -37,7 +37,7 @@ cluster.name: {{ aspects_elasticsearch_conf.cluster_name }}
 path.data: {{ aspects_elasticsearch_conf.data_path }}
 {% endif %}
 
-{% if aspects_elasticsearch_conf.multicast_enabled is defined and aspects_elasticsearch_conf.multicast_enabled != false %}
+{% if aspects_elasticsearch_conf.multicast_enabled is defined %}
 discovery.zen.ping.multicast.enabled: {{ aspects_elasticsearch_conf.multicast_enabled }}
 {% endif %}
 
