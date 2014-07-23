@@ -53,6 +53,13 @@ index.routing.allocation.disable_allocation: {{ aspects_elasticsearch_conf.disab
 bootstrap.mlockall: {{ aspects_elasticsearch_conf.mlockall }}
 {% endif %}
 
+{% if aspects_elasticsearch_conf.zen_minimum_master_nodes is defined and aspects_elasticsearch_conf.zen_minimum_master_nodes != false %}
+discovery.zen.minimum_master_nodes: {{ aspects_elasticsearch_conf.zen_minimum_master_nodes }}
+{% endif %}
+
+{% if aspects_elasticsearch_conf.action_destructive_requires_name is defined and aspects_elasticsearch_conf.action_destructive_requires_name != false %}
+action.destructive_requires_name: {{ aspects_elasticsearch_conf.action_destructive_requires_name }}
+{% endif %}
 
 ################################### Cluster ###################################
 

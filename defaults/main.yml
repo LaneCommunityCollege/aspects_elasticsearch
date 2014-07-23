@@ -9,3 +9,4 @@ aspects_elasticsearch_conf:
   data_path: false
   multicast_enabled: false
   unicast_hosts: false
+  action_destructive_requires_name: true
