@@ -10,3 +10,4 @@ aspects_elasticsearch_conf:
   multicast_enabled: false
   unicast_hosts: false
   action_destructive_requires_name: true
+  script_disable_dynamic: true

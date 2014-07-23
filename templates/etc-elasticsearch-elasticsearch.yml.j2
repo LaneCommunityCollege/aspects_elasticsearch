@@ -61,6 +61,10 @@ discovery.zen.minimum_master_nodes: {{ aspects_elasticsearch_conf.zen_minimum_ma
 action.destructive_requires_name: {{ aspects_elasticsearch_conf.action_destructive_requires_name }}
 {% endif %}
 
+{% if aspects_elasticsearch_conf.script_disable_dynamic is defined and aspects_elasticsearch_conf.script_disable_dynamic != false %}
+script.disable_dynamic: {{ aspects_elasticsearch_conf.script_disable_dynamic }}
+{% endif %}
+
 ################################### Cluster ###################################
 
 # Cluster name identifies your cluster for auto-discovery. If you're running
