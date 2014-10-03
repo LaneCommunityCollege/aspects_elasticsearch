@@ -1,11 +1,12 @@
 ---
 # main aspects_elasticsearch task file.
 - include: installDebian.yml
-  when: aspects_elasticsearch_install and ansible_os_family == "Debian"
+  when: aspects_elasticsearch_install == true and ansible_os_family == "Debian"
 - include: installRedHat.yml
-  when: aspects_elasticsearch_install and ansible_os_family == "RedHat"
+  when: aspects_elasticsearch_install == true and ansible_os_family == "RedHat"
 
 - name: set /etc/elasticsearch/elasticsearch.yml template
+  when: aspects_elasticsearch_enabled == true
   template: src=etc-elasticsearch-elasticsearch.yml.j2 dest="/etc/elasticsearch/elasticsearch.yml"
   notify: restart elasticsearch
   tags:

@@ -1,9 +1,10 @@
 ---
 # file: roles/elasticsearch/defaults/main.yml
 
-aspects_elasticsearch_install: true
+aspects_elasticsearch_install: false
+aspects_elasticsearch_enabled: false
 aspects_elasticsearch_use_oracle_java: false
-aspects_elasticsearch_major_version_number: 1.1
+aspects_elasticsearch_major_version_number: 1.3
 aspects_elasticsearch_conf:
   cluster_name: false
   data_path: false
