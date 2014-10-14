@@ -36,8 +36,7 @@ Currently supported:
 Note that ```node.name``` defaults to ```{{ ansible_hostname }}``` in the template file.
 
 ##Dependencies
-
-* aspects_common_packages
+None.
 
 
 Example Playbook

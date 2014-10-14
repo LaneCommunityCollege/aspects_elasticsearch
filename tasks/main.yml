@@ -1,9 +1,18 @@
 ---
 # main aspects_elasticsearch task file.
+- include: installPackages.yml
+  tags:
+  - aspects_elasticsearch
 - include: installDebian.yml
   when: aspects_elasticsearch_install == true and ansible_os_family == "Debian"
+  tags:
+  - aspects_elasticsearch
+  - aspects_elasticsearch_install
 - include: installRedHat.yml
   when: aspects_elasticsearch_install == true and ansible_os_family == "RedHat"
+  tags:
+  - aspects_elasticsearch
+  - aspects_elasticsearch_install
 
 - name: set /etc/elasticsearch/elasticsearch.yml template
   when: aspects_elasticsearch_enabled == true

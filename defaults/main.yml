@@ -12,3 +12,11 @@ aspects_elasticsearch_conf:
   unicast_hosts: false
   action_destructive_requires_name: true
   script_disable_dynamic: true
+
+aspects_elasticsearch_packages:
+  openjdk:
+    state: "latest"
+    Debian: default-jre-headless
+    RedHat: java-1.7.0-openjdk
+# SLES does not have openjdk, which means it's different from the others. So leaving commented out for now.
+#    Suse: java-1_7_0-ibm
