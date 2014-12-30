@@ -20,3 +20,4 @@
   notify: restart elasticsearch
   tags:
     - aspects_elasticsearch
+    - aspects_elasticsearch_config
