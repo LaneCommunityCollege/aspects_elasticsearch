@@ -4,7 +4,7 @@
 aspects_elasticsearch_install: false
 aspects_elasticsearch_enabled: false
 aspects_elasticsearch_use_oracle_java: false
-aspects_elasticsearch_major_version_number: 1.3
+aspects_elasticsearch_major_version_number: 1.4
 aspects_elasticsearch_conf:
   cluster_name: false
   data_path: false
@@ -20,3 +20,5 @@ aspects_elasticsearch_packages:
     RedHat: java-1.7.0-openjdk
 # SLES does not have openjdk, which means it's different from the others. So leaving commented out for now.
 #    Suse: java-1_7_0-ibm
+
+aspects_elasticsearch_custom_user: False

@@ -65,6 +65,10 @@ action.destructive_requires_name: {{ aspects_elasticsearch_conf.action_destructi
 script.disable_dynamic: {{ aspects_elasticsearch_conf.script_disable_dynamic }}
 {% endif %}
 
+{% if aspects_elasticsearch_conf.node_data is defined %}
+node.data: {{ aspects_elasticsearch_conf.node_data }}
+{% endif %}
+
 ################################### Cluster ###################################
 
 # Cluster name identifies your cluster for auto-discovery. If you're running

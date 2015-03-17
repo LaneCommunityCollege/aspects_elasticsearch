@@ -14,10 +14,78 @@
   - aspects_elasticsearch
   - aspects_elasticsearch_install
 
+- name: Create elasticsearch runtime group
+  when: aspects_elasticsearch_custom_user == True
+  group:
+    state: present
+    system: yes
+    name: "{{ aspects_elasticsearch_user.groupname }}"
+    gid: "{{ aspects_elasticsearch_user.gid }}"
+  tags:
+  - aspects_elasticsearch
+
+- name: Create elasticsearch runtime user
+  when: aspects_elasticsearch_custom_user == True
+  user:
+    state: present
+    name: "{{ aspects_elasticsearch_user.name }}"
+    system: yes
+    uid: "{{ aspects_elasticsearch_user.uid }}"
+    home: /usr/share/elasticsearch
+    createhome: no
+    shell: /bin/false
+    group: "{{ aspects_elasticsearch_user.groupname }}"
+  tags:
+  - aspects_elasticsearch
+
+- name: Set data dir and log dir owner/group 
+  file: 
+    state: directory
+    path: "{{ item.value }}"
+    owner: "{{ aspects_elasticsearch_user.name|default('elasticsearch') }}"
+    group: "{{ aspects_elasticsearch_user.groupname|default('elasticsearch') }}"
+    mode: 0755
+    recurse: yes
+  with_dict: aspects_elasticsearch_paths|default({})
+  tags:
+  - aspects_elasticsearch
+
 - name: set /etc/elasticsearch/elasticsearch.yml template
   when: aspects_elasticsearch_enabled == true
   template: src=etc-elasticsearch-elasticsearch.yml.j2 dest="/etc/elasticsearch/elasticsearch.yml"
-  notify: restart elasticsearch
   tags:
     - aspects_elasticsearch
     - aspects_elasticsearch_config
+
+- name: Debian - Set runtime default values
+  when: ansible_os_family == "Debian"
+  lineinfile: 
+    dest: /etc/default/elasticsearch
+    line: "{{ item.value }}"
+    mode: 0644
+    owner: 0
+    group: 0
+  with_dict: aspects_elasticsearch_defaults|default({})
+  tags:
+    - aspects_elasticsearch
+    - aspects_elasticsearch_config
+
+- name: RedHat - Set runtime default values
+  when: ansible_os_family == "RedHat"
+  lineinfile: 
+    dest: /etc/sysconfig/elasticsearch
+    line: "{{ item.value }}"
+    mode: 0644
+    owner: 0
+    group: 0
+  with_dict: aspects_elasticsearch_defaults|default({})
+  tags:
+    - aspects_elasticsearch
+    - aspects_elasticsearch_config
+
+- name: Restart elasticsearch only when it is really needed
+  when: aspects_elasticsearch_restart == True 
+  debug: msg="Restarting elasticsearch."
+  notify: restart elasticsearch
+  tags:
+    - aspects_elasticsearch
