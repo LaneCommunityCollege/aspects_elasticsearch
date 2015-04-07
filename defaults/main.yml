@@ -3,6 +3,7 @@
 
 aspects_elasticsearch_install: false
 aspects_elasticsearch_enabled: false
+aspects_elasticsearch_restart: False
 aspects_elasticsearch_use_oracle_java: false
 aspects_elasticsearch_major_version_number: 1.4
 aspects_elasticsearch_conf:

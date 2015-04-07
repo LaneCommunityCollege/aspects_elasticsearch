@@ -84,7 +84,7 @@
     - aspects_elasticsearch_config
 
 - name: Restart elasticsearch only when it is really needed
-  when: aspects_elasticsearch_restart == True 
+  when: aspects_elasticsearch_restart
   debug: msg="Restarting elasticsearch."
   notify: restart elasticsearch
   tags:
