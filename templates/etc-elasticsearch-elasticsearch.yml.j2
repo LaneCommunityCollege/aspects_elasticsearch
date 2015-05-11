@@ -69,6 +69,10 @@ script.disable_dynamic: {{ aspects_elasticsearch_conf.script_disable_dynamic }}
 node.data: {{ aspects_elasticsearch_conf.node_data }}
 {% endif %}
 
+{% if aspects_elasticsearch_conf.http_port is defined %}
+http.port: {{ aspects_elasticsearch_conf.http_port }}
+{% endif %}
+
 ################################### Cluster ###################################
 
 # Cluster name identifies your cluster for auto-discovery. If you're running
