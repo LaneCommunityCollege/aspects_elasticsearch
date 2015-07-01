@@ -73,6 +73,10 @@ node.data: {{ aspects_elasticsearch_conf.node_data }}
 http.port: {{ aspects_elasticsearch_conf.http_port }}
 {% endif %}
 
+{% if aspects_elasticsearch_conf.path_repo is defined %}
+path.repo: {{ aspects_elasticsearch_conf.path_repo }}
+{% endif %}
+
 ################################### Cluster ###################################
 
 # Cluster name identifies your cluster for auto-discovery. If you're running
