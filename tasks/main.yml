@@ -4,12 +4,12 @@
   tags:
   - aspects_elasticsearch
 - include: installDebian.yml
-  when: aspects_elasticsearch_install == true and ansible_os_family == "Debian"
+  when: ansible_os_family == "Debian" and aspects_elasticsearch_install
   tags:
   - aspects_elasticsearch
   - aspects_elasticsearch_install
 - include: installRedHat.yml
-  when: aspects_elasticsearch_install == true and ansible_os_family == "RedHat"
+  when: aspects_elasticsearch_install == True and ansible_os_family == "RedHat"
   tags:
   - aspects_elasticsearch
   - aspects_elasticsearch_install
