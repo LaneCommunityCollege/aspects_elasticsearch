@@ -21,4 +21,8 @@
     - aspects_elasticsearch_install_yum
 
 - name: install elasticsearch with yum
-  yum: pkg="elasticsearch" state="present"
+  yum: pkg="elasticsearch" state="latest"
+  tags:
+    - aspects_elasticsearch
+    - aspects_elasticsearch_install
+    - aspects_elasticsearch_install_yum
